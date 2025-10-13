@@ -1,0 +1,179 @@
+(Elevator) C:\Users\admin\elevator>python scan_based_client.py
+[DEBUG] API Client initialized for http://127.0.0.1:8000
+启动 LOOKElevatorController 算法
+[DEBUG] Updated traffic info - max_tick: 0
+模拟器接收到的最大tick时间为0，可能所有的测试案例已用完，请求重置...
+[DEBUG] Cache cleared after traffic round switch
+[DEBUG] Updated traffic info - max_tick: 200
+初始化: 2个电梯, 6层楼
+Tick 1: 乘客1在4层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+[DEBUG] Sending elevator command: go_to_floor to elevator 1 To:F4
+Tick 2: 乘客2在4层呼叫电梯，方向: down
+Tick 3: 乘客3在4层呼叫电梯，方向: down
+Tick 4: 乘客4在0层呼叫电梯，方向: up
+7 电梯0经过楼层1，方向up
+7 电梯1经过楼层1，方向up
+12 电梯0经过楼层2，方向up
+12 电梯1经过楼层2，方向up
+Tick 14: 乘客5在5层呼叫电梯，方向: down
+17 电梯0经过楼层3，方向up
+17 电梯1经过楼层3，方向up
+Tick 18: 乘客6在1层呼叫电梯，方向: up
+Tick 19: 乘客7在2层呼叫电梯，方向: up
+Tick 20: 乘客8在5层呼叫电梯，方向: down
+Tick 21: 乘客9在0层呼叫电梯，方向: up
+Tick 22: 乘客10在2层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F5
+Tick 23: 乘客11在2层呼叫电梯，方向: up
+Tick 25: 乘客12在2层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F2
+Tick 29: 乘客5上电梯0，目的地0层
+Tick 29: 乘客8上电梯0，目的地2层
+Tick 30: 乘客13在3层呼叫电梯，方向: up
+Tick 32: 乘客14在3层呼叫电梯，方向: up
+Tick 34: 乘客15在4层呼叫电梯，方向: down
+34 电梯0经过楼层4，方向down
+Tick 35: 乘客16在2层呼叫电梯，方向: up
+Tick 36: 乘客17在5层呼叫电梯，方向: down
+Tick 38: 乘客18在1层呼叫电梯，方向: up
+39 电梯0经过楼层3，方向down
+Tick 40: 乘客19在0层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F1
+Tick 44: 乘客8在2层下电梯0
+Tick 50: 乘客20在0层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F0
+Tick 54: 乘客21在1层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+Tick 56: 乘客5在0层下电梯0
+Tick 57: 乘客4上电梯0，目的地4层
+Tick 57: 乘客9上电梯0，目的地2层
+Tick 57: 乘客19上电梯0，目的地4层
+Tick 57: 乘客20上电梯0，目的地1层
+Tick 60: 乘客22在5层呼叫电梯，方向: down
+Tick 61: 乘客23在3层呼叫电梯，方向: down
+62 电梯0经过楼层1，方向up
+Tick 63: 乘客24在3层呼叫电梯，方向: down
+Tick 67: 乘客25在0层呼叫电梯，方向: up
+67 电梯0经过楼层2，方向up
+Tick 70: 乘客26在0层呼叫电梯，方向: up
+72 电梯0经过楼层3，方向up
+Tick 76: 乘客27在5层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F5
+Tick 77: 乘客4在4层下电梯0
+Tick 77: 乘客19在4层下电梯0
+Tick 78: 乘客28在2层呼叫电梯，方向: up
+Tick 80: 乘客29在2层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F3
+Tick 84: 乘客17上电梯0，目的地0层
+Tick 84: 乘客22上电梯0，目的地1层
+Tick 84: 乘客27上电梯0，目的地3层
+89 电梯0经过楼层4，方向down
+Tick 91: 乘客30在5层呼叫电梯，方向: down
+Tick 92: 乘客31在3层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F2
+Tick 94: 乘客27在3层下电梯0
+Tick 95: 乘客23上电梯0，目的地1层
+Tick 95: 乘客24上电梯0，目的地1层
+Tick 95: 乘客31上电梯0，目的地1层
+Tick 95: 乘客32在3层呼叫电梯，方向: up
+Tick 96: 乘客33在0层呼叫电梯，方向: up
+Tick 98: 乘客34在2层呼叫电梯，方向: up
+Tick 100: 乘客35在2层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F1
+Tick 100: 乘客9在2层下电梯0
+Tick 101: 乘客35上电梯0，目的地0层
+Tick 103: 乘客36在1层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F0
+Tick 106: 乘客20在1层下电梯0
+Tick 106: 乘客22在1层下电梯0
+Tick 106: 乘客23在1层下电梯0
+Tick 106: 乘客24在1层下电梯0
+Tick 106: 乘客31在1层下电梯0
+Tick 110: 乘客37在2层呼叫电梯，方向: up
+Tick 112: 乘客38在3层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+Tick 112: 乘客17在0层下电梯0
+Tick 112: 乘客35在0层下电梯0
+Tick 113: 乘客25上电梯0，目的地1层
+Tick 113: 乘客26上电梯0，目的地4层
+Tick 113: 乘客33上电梯0，目的地1层
+Tick 113: 乘客39在0层呼叫电梯，方向: up
+Tick 114: 乘客40在3层呼叫电梯，方向: down
+118 电梯0经过楼层1，方向up
+Tick 122: 乘客41在0层呼叫电梯，方向: up
+123 电梯0经过楼层2，方向up
+Tick 127: 乘客42在2层呼叫电梯，方向: up
+128 电梯0经过楼层3，方向up
+Tick 130: 乘客43在1层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F5
+Tick 133: 乘客26在4层下电梯0
+Tick 137: 乘客44在4层呼叫电梯，方向: down
+Tick 139: 乘客45在3层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+Tick 140: 乘客30上电梯0，目的地1层
+Tick 140: 乘客46在4层呼叫电梯，方向: down
+Tick 143: 乘客47在4层呼叫电梯，方向: down
+Tick 144: 乘客48在2层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F3
+Tick 146: 乘客1上电梯0，目的地0层
+Tick 146: 乘客2上电梯0，目的地2层
+Tick 146: 乘客3上电梯0，目的地3层
+Tick 146: 乘客15上电梯0，目的地1层
+Tick 146: 乘客44上电梯0，目的地2层
+Tick 147: 乘客49在2层呼叫电梯，方向: up
+Tick 148: 乘客50在5层呼叫电梯，方向: down
+Tick 149: 乘客51在1层呼叫电梯，方向: up
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F2
+Tick 151: 乘客3在3层下电梯0
+Tick 152: 乘客40上电梯0，目的地1层
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F1
+Tick 157: 乘客2在2层下电梯0
+Tick 157: 乘客44在2层下电梯0
+Tick 160: 乘客52在4层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F0
+Tick 163: 乘客25在1层下电梯0
+Tick 163: 乘客33在1层下电梯0
+Tick 163: 乘客30在1层下电梯0
+Tick 163: 乘客15在1层下电梯0
+Tick 163: 乘客40在1层下电梯0
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+Tick 169: 乘客1在0层下电梯0
+Tick 170: 乘客39上电梯0，目的地5层
+Tick 170: 乘客41上电梯0，目的地5层
+Tick 172: 乘客53在4层呼叫电梯，方向: down
+Tick 173: 乘客54在3层呼叫电梯，方向: down
+Tick 174: 乘客55在5层呼叫电梯，方向: down
+175 电梯0经过楼层1，方向up
+Tick 179: 乘客56在0层呼叫电梯，方向: up
+Tick 180: 乘客57在4层呼叫电梯，方向: down
+180 电梯0经过楼层2，方向up
+Tick 182: 乘客58在2层呼叫电梯，方向: down
+185 电梯0经过楼层3，方向up
+Tick 186: 乘客59在1层呼叫电梯，方向: down
+Tick 188: 乘客60在2层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F5
+Tick 191: 乘客61在4层呼叫电梯，方向: up
+Tick 192: 乘客62在5层呼叫电梯，方向: down
+Tick 193: 乘客63在1层呼叫电梯，方向: up
+Tick 195: 乘客64在0层呼叫电梯，方向: up
+Tick 196: 乘客65在4层呼叫电梯，方向: down
+[DEBUG] Sending elevator command: go_to_floor to elevator 0 To:F4
+Tick 196: 乘客39在5层下电梯0
+Tick 196: 乘客41在5层下电梯0
+Tick 197: 乘客50上电梯0，目的地1层
+Tick 197: 乘客55上电梯0，目的地4层
+Tick 197: 乘客62上电梯0，目的地1层
+Tick 197: 乘客66在5层呼叫电梯，方向: down
+{'average_arrival_wait_time': 67.56,
+ 'average_floor_wait_time': 45.52,
+ 'completed_passengers': 25,
+ 'p95_arrival_wait_time': 59.391304347826086,
+ 'p95_floor_wait_time': 36.91304347826087,
+ 'total_passengers': 66}
+[DEBUG] Cache cleared after traffic round switch
+[DEBUG] Cache cleared after reset
+[DEBUG] Updated traffic info - max_tick: 0
+初始化: 2个电梯, 6层楼
+停止 LOOKElevatorController 算法
