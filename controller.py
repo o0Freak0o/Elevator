@@ -16,6 +16,7 @@ class NewElevatorController(ElevatorController):
 
     def on_init(self, elevators: List[ProxyElevator], floors: List[ProxyFloor]) -> None:
         self.max_level = floors[-1].floor
+
         
         n = len(floors)
         self.request_queue = [[False, False] for _ in range(n)]
@@ -51,12 +52,15 @@ class NewElevatorController(ElevatorController):
         # 找出没有电梯去的request楼层
         unserved_requests = [f for f in request_floors if f not in target_floors]
         
-        # 随机派遣idle电梯到无人服务的request楼层
-        for elevator in elevators:
-            if elevator.is_idle and unserved_requests:
-                random_floor = random.choice(unserved_requests)
-                elevator.go_to_floor(random_floor)
-                unserved_requests.remove(random_floor)
+        idle_elevators = [e for e in elevators if e.is_idle]
+        for elevator in idle_elevators:
+            if unserved_requests:
+                distances = [(abs(elevator.current_floor - floor), floor) for floor in unserved_requests]
+                distances.sort()
+                target_floor = distances[0][1]
+
+                elevator.go_to_floor(target_floor)
+                unserved_requests.remove(target_floor)
 
     def on_event_execute_end(
         self, tick: int, events: List[SimulationEvent], elevators: List[ProxyElevator], floors: List[ProxyFloor]
@@ -78,10 +82,10 @@ class NewElevatorController(ElevatorController):
         }
 
     def on_elevator_idle(self, elevator: ProxyElevator) -> None:
-        """使用request_queue随机派遣idle电梯"""
+        """智能派遣idle电梯"""
         current = elevator.current_floor
         
-        # 如果当前楼层有request，随机决定方向
+        # 如果当前楼层有request，优先处理
         if self.request_queue[current][0] and current < self.max_level:  # up
             elevator.go_to_floor(current + 1)
             return
@@ -89,14 +93,18 @@ class NewElevatorController(ElevatorController):
             elevator.go_to_floor(current - 1)
             return
         
+        # 寻找其他楼层的request
         waiting = []
         for f in range(len(self.request_queue)):
             if f != current and (self.request_queue[f][0] or self.request_queue[f][1]):
                 waiting.append(f)
         
         if waiting:
-            random_choice = random.choice(waiting)
-            elevator.go_to_floor(random_choice)
+            distances = [(abs(f - current), f) for f in waiting]
+            distances.sort()
+            target_floor = distances[0][1]
+
+            elevator.go_to_floor(target_floor)
 
     def on_elevator_stopped(self, elevator: ProxyElevator, floor: ProxyFloor) -> None:
         """停靠后：更新request_queue，然后随机选择下一个目标"""
@@ -134,11 +142,13 @@ class NewElevatorController(ElevatorController):
                     elevator.go_to_floor(current - 1)
                     return
             
-            # 没人等，随机选择一个request楼层
             request_floors = [f for f in range(len(self.request_queue)) 
                              if f != current and (self.request_queue[f][0] or self.request_queue[f][1])]
             if request_floors:
-                target = random.choice(request_floors)
+                distances = [(abs(f - current), f) for f in request_floors]
+                distances.sort()
+                target = distances[0][1]
+ 
                 elevator.go_to_floor(target)
                 return
         
@@ -174,8 +184,11 @@ class NewElevatorController(ElevatorController):
                 candidates.append(max(below))
         
         if candidates:
-            random_choice = random.choice(candidates)
-            elevator.go_to_floor(random_choice)
+            distances = [(abs(f - current), f) for f in candidates]
+            distances.sort()
+            target_floor = distances[0][1]
+
+            elevator.go_to_floor(target_floor)
 
     def on_passenger_board(self, elevator: ProxyElevator, passenger: ProxyPassenger) -> None:
         # 记录乘客目的地
