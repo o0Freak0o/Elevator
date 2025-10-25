@@ -2,6 +2,8 @@
 
 import random
 from typing import List
+import sys
+sys.path.append("D:/homework/soft_engineering/project/Elevator_shen")
 from elevator_saga.client.base_controller import ElevatorController
 from elevator_saga.client.proxy_models import ProxyElevator, ProxyFloor, ProxyPassenger
 from elevator_saga.core.models import Direction, SimulationEvent
@@ -9,7 +11,7 @@ from elevator_saga.core.models import Direction, SimulationEvent
 
 class NewElevatorController(ElevatorController):
     def __init__(self) -> None:
-        super().__init__("http://127.0.0.1:8000", False)  # debug=False
+        super().__init__("http://127.0.0.1:8000", False, "algorithm")  # debug=False, client_type="algorithm"
         self.max_level = 0
         self.user_data = {}  # 记录所有乘客信息
         self.elevator_goals = {}  # 手动维护：{elevator_id: {passenger_id: destination}}
@@ -215,5 +217,18 @@ class NewElevatorController(ElevatorController):
 
 
 if __name__ == "__main__":
+    
     controller = NewElevatorController()
-    controller.start()
+    try:
+        controller.start()
+    except KeyboardInterrupt:
+        print("\n[CTRL+C] Stopping gracefully...")
+    except Exception as e:
+        print(f"Error: {e}", file=sys.stderr)
+        sys.exit(1)
+    finally:
+        # 确保清理，无论正常退出、异常还是 Ctrl+C
+        try:
+            controller.on_stop()   # 或 controller.stop()
+        except Exception:
+            pass
